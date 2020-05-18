@@ -1,0 +1,28 @@
+{#
+/**
+* @file
+* Default theme implementation to display a block.
+*
+* @see template_preprocess_block()
+*
+* @ingroup themeable
+*/
+#}
+{% set classes = [
+    'clear-both',
+] %}
+{% if items or empty %}
+  {%- if title is not empty -%}
+    <h3>{{ title }}</h3>
+  {%- endif -%}
+
+  {%- if items -%}
+    <il class="tabs">
+    {%- for item in items -%}
+      <li>{{ item }}</li>
+    {%- endfor -%}
+    </il>
+  {%- else -%}
+    {{- empty -}}
+  {%- endif -%}
+{%- endif %}

@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @file
+ * Contains jv_tabs.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function jv_tabs_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the jv_tabs module.
+    case 'help.page.jv_tabs':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Tabs for Josiah Venture that rembember their parameters') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function jv_tabs_theme() {
+  return [
+    'jv_tabs' => [
+      'variables' => [
+        'content' => NULL,
+        'items'   => [],
+      ],
+      'render element' => 'children',
+    ],
+  ];
+}

@@ -1,0 +1,13 @@
+{
+    "name": "jv_tabs",
+    "type": "drupal-module",
+    "description": "Tabs for Josiah Venture that remember their parameters",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/jv_tabs",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/jv_tabs",
+        "source": "http://cgit.drupalcode.org/jv_tabs",
+    },
+}

@@ -1,0 +1,5 @@
+name: 'Josiah Venture Tabs'
+type: module
+description: 'Tabs for Josiah Venture that rembember their parameters'
+core: 8.x
+package: 'JosiahVenture'
