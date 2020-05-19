@@ -37,7 +37,7 @@ class TabsBlock extends BlockBase {
     foreach($this->links as $key => $link){
       if(isset($this->configuration[$link])) {
         $label = $this->configuration[$link.'label'];
-        $items[] = Link::fromTextAndUrl($label,Url::fromUserInput('/'.$link,['query'=>  \Drupal::request()->query->all()]));
+        $items[] = Link::fromTextAndUrl($label,Url::fromUserInput($this->configuration[$link],['query'=>  \Drupal::request()->query->all()]));
       }
     }
     $build['#items'] = $items;
