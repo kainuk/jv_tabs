@@ -1,5 +1,5 @@
 {
-    "name": "jv_tabs",
+    "name": "drupal/jv_tabs",
     "type": "drupal-module",
     "description": "Tabs for Josiah Venture that remember their parameters",
     "keywords": [
