@@ -31,7 +31,7 @@ class TabsBlock extends BlockBase {
   public function build() {
     $build['jv']=[];
     $build['#theme'] = 'jv_tabs';
-    $build['#title'] = 'Nog een title';
+    $build['#title'] = 'JV Tabs';
     $items = [];
     \Drupal::request()->query->all();
     foreach($this->links as $key => $link){
@@ -74,6 +74,10 @@ class TabsBlock extends BlockBase {
       $this->configuration[$link] = $values['jv'][$link];
       $this->configuration[$link .'label'] = $values['jv'][$link .'label'];
     }
+  }
+
+  public function getCacheMaxAge() {
+    return 0;
   }
 
 }
