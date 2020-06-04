@@ -23,6 +23,8 @@ class TabsBlock extends BlockBase {
         '03' => 'link03',
         '04' => 'link04',
         '05' => 'link05',
+        '06' => 'link06',
+        '07' => 'link07',
   ];
 
   /**
