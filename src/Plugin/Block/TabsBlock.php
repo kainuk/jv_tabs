@@ -37,7 +37,7 @@ class TabsBlock extends BlockBase {
     $items = [];
     \Drupal::request()->query->all();
     foreach($this->links as $key => $link){
-      if(isset($this->configuration[$link])) {
+      if(!empty($this->configuration[$link])) {
         $label = $this->configuration[$link.'label'];
         $items[] = Link::fromTextAndUrl($label,Url::fromUserInput($this->configuration[$link],['query'=>  \Drupal::request()->query->all()]));
       }
@@ -51,21 +51,21 @@ class TabsBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function blockForm($form, FormStateInterface $form_state) {
-    $form['jv'] = [
-      '#type' => 'fieldset',
-      '#title' => $this->t('List of TabLinks')
-      ];
       foreach($this->links as $key => $link) {
-        $form['jv'][$link.'label'] = [
+        $form[$key] = [
+          '#type' => 'details',
+          '#title' => "Tab $key",
+            'label' => [
           '#type' => 'textfield',
-          '#title' => 'Label ' . $key,
+          '#title' => 'Label',
           '#default_value' => $this->configuration[$link.'label'],
-        ];
-        $form['jv'][$link] = [
+        ],
+        'link' => [
           '#type' => 'textfield',
-          '#title' => 'Link ' . $key,
+          '#title' => 'Link',
           '#default_value' => $this->configuration[$link],
-        ];
+          '#description' => t('The link must start with a /'),
+        ]];
       }
     return $form;
   }
@@ -73,8 +73,8 @@ class TabsBlock extends BlockBase {
   public function blockSubmit($form, FormStateInterface $form_state) {
     $values = $form_state->getValues();
     foreach($this->links as $key => $link) {
-      $this->configuration[$link] = $values['jv'][$link];
-      $this->configuration[$link .'label'] = $values['jv'][$link .'label'];
+      $this->configuration[$link] = $values[$key]['link'];
+      $this->configuration[$link .'label'] = $values[$key]['label'];
     }
   }
 
